@@ -1,23 +1,27 @@
 {
   "name": "week_8-freEbay-mini-project",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
+    "db:create": "createdb freeBay-app",
+    "db:init": "psql -f schema.sql freeBay-app && psql -f seed.sql freeBay-app",
+    "db:destroy": "dropdb freeBay-app",
+    "db:reset": "npm run db:destroy; npm run db:create && npm run db:init",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": ""
-  },
-  "homepage": "",
+  "homepage": "https://github.com/Anthony-Moss/freeBay-mini-project#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "dotenv": "^7.0.0",
+    "escape-html": "^1.0.3",
     "express": "^4.16.4",
     "express-es6-template-engine": "^2.1.7",
     "express-session": "^1.15.6",
+    "helmet": "^3.16.0",
     "pg-promise": "^8.6.4",
     "session-file-store": "^1.2.0"
   },
@@ -25,5 +29,13 @@
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "nodemon": "^1.18.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anthony-Moss/freeBay-mini-project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Anthony-Moss/freeBay-mini-project"
+  },
+  "description": ""
 }

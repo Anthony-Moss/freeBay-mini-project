@@ -1,7 +1,9 @@
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const es6Renderer = require('express-es6-template-engine');
-const port = 3000;
+const port = process.env.PORT;
 
 const User = require('./models/users');
 const Item = require('./models/items');
@@ -18,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(session({
     store: new FileStore(),
-    secret: "dog"
+    secret: process.env.SESSION_SECRET
 }));
 
 const homeRoutes = require('./routes/home');
@@ -36,8 +38,8 @@ app.use('/sells', sellRoutes);
 //     user.setPassword("password");
 //     await user.save();
 //     console.log('you did the thing')
-//  }
-//  demo();
+// }
+// demo();
 
 app.listen(port, () => {
     console.log(`Running on port ${port}`);

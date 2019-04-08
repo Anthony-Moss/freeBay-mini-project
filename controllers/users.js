@@ -45,10 +45,19 @@ async function deleteOne(req, res) {
     });
 }
 
+async function demo() {
+    const user = await User.getByEmail('seilcho7@hotmail.com');
+    user.setPassword("password");
+    await user.save();
+    console.log('you did the thing')
+}
+demo();
+
 module.exports = {
     create,
     retrieveAll,
     retrieveOne,
     update,
     deleteOne,
+    demo
 };

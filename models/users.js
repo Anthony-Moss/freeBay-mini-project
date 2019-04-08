@@ -100,5 +100,12 @@ class User {
         return bcrypt.compareSync(aPassword, this.password);
     }
 }
+// async function demo() {
+//     const user = await User.getByEmail('seilcho7@hotmail.com');
+//     user.setPassword("password");
+//     await user.save();
+//     console.log('you did the thing')
+// }
+// demo();
 
 module.exports = User;
